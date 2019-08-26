@@ -72,7 +72,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        checkUpdates();
+        // checkUpdates();
     }
 
     public void setCanvas(Component canvas) {
