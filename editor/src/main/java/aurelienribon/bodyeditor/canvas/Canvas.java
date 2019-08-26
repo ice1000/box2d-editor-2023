@@ -117,8 +117,8 @@ public class Canvas extends ApplicationAdapter {
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
 
-        Gdx.gl30.glClearColor(1, 1, 1, 1);
-        Gdx.gl30.glClear(Gdx.gl30.GL_COLOR_BUFFER_BIT);
+        Gdx.gl20.glClearColor(1, 1, 1, 1);
+        Gdx.gl20.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
 
         batch.setProjectionMatrix(screenCamera.combined);
         batch.begin();
@@ -143,7 +143,7 @@ public class Canvas extends ApplicationAdapter {
 
     @Override
     public void resize(int width, int height) {
-        Gdx.gl30.glViewport(0, 0, width, height);
+        Gdx.gl20.glViewport(0, 0, width, height);
         resetCameras();
     }
 

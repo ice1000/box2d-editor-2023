@@ -28,7 +28,6 @@ public class Main {
                 }
 
                 LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-                config.useGL30 = true;
                 LwjglCanvas glCanvas = new LwjglCanvas(new Canvas(), config);
                 MainWindow mw = Ctx.window;
 
