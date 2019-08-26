@@ -657,7 +657,7 @@ public class RigidBodiesScreen {
         for (PolygonModel polygon : model.getPolygons()) {
             Vector2[] vs = polygon.vertices.toArray(new Vector2[0]);
 
-            if (PolygonUtils.getPolygonArea(vs) < 0.00001f) continue;
+            if (PolygonUtils.getPolygonArea(vs) < 0.005f) continue;
 
             PolygonShape shape = new PolygonShape();
             shape.set(vs);
