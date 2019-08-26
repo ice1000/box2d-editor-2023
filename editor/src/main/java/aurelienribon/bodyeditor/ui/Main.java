@@ -40,7 +40,14 @@ public class Main {
                 mw.setCanvas(glCanvas.getCanvas());
                 mw.setLocationRelativeTo(null);
                 mw.setVisible(true);
-
+                mw.setResizable(false);
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        mw.setSize(mw.getWidth() - 1, mw.getHeight() - 1);
+                        mw.setResizable(true);
+                    }
+                });
                 parseArgs(args);
             }
         });
