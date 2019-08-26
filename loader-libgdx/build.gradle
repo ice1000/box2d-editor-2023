@@ -19,9 +19,5 @@ sourceSets {
 }
 
 jar {
-    archiveName = "loader-libgdx.jar"
-}
-
-eclipse.project {
-    name = appName + "-loader-libgdx"
+    archiveFileName = "loader-libgdx.jar"
 }

@@ -25,11 +25,7 @@ sourceSets {
 }
 
 jar {
-    archiveName = "loader-libgdx-demo.jar"
-}
-
-eclipse.project {
-    name = appName + "-loader-libgdx-demo"
+    archiveFileName = "loader-libgdx-demo.jar"
 }
 
 // Mark the resources dir in IntelliJ as an actual resource dir, not another java source dir

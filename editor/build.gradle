@@ -1,4 +1,4 @@
-apply plugin: "java"
+apply plugin: "java-library"
 
 sourceCompatibility = 1.8
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
@@ -25,7 +25,6 @@ sourceSets {
         java
                 {
                     srcDirs = ["src/main/java"]
-                    output.classesDir 'build/classes'
                 }
         resources.srcDirs = ["src/main/resources"]
         output.resourcesDir 'build/classes'
@@ -33,19 +32,19 @@ sourceSets {
 }
 
 jar {
-    archiveName = "PhysicsBodyEditor.jar"
 
-//    doFirst {
-//        copy {
-//            from 'src/SolAppListener.gwt.xml'
-//            into 'build/classes/main'
-//        }
-//    }
+    archiveFileName = "PhysicsBodyEditor.jar"
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': "$mainClassName"
+        )
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
-eclipse.project {
-    name = appName + "-editor"
-}
 
 task run(type: JavaExec) {
     dependsOn classes
