@@ -27,8 +27,11 @@ tasks.register('javadocJar', Jar) {
 }
 
 artifacts {
-    archives sourcesJar
-    archives javadocJar
+    archives sourcesJar, javadocJar
+}
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
 def prop(String key) {
