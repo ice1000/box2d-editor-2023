@@ -7,10 +7,10 @@ buildscript {
 allprojects {
     apply plugin: "idea"
 
-    version = '2.0.0'
+    version = '3.0.0'
     ext {
         appName = 'Physics Body Editor'
-        gdxVersion = '1.9.8'
+        gdxVersion = '1.11.0'
     }
 
     repositories {
@@ -20,9 +20,6 @@ allprojects {
         // Repos for LibGDX
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
-
-        // Terasology Artifactory for any shared libs
-        //maven { url "http://artifactory.terasology.org/artifactory/virtual-repo-live" }
     }
 }
 

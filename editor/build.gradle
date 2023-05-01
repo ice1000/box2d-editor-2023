@@ -4,35 +4,35 @@ sourceCompatibility = 1.8
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 project.ext.mainClassName = "aurelienribon.bodyeditor.ui.Main"
 dependencies {
-    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-    compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-    compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-    compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-    compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion"
-    compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
-    compile "net.java.balloontip:balloontip:1.2.1"
-    compile "commons-io:commons-io:2.1"
-    compile "org.json:json:20090211"
+    // https://mvnrepository.com/artifact/net.java.balloontip/balloontip
+    implementation "net.java.balloontip:balloontip:1.2.4.1"
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation "commons-io:commons-io:2.11.1"
+    implementation "org.json:json:20230227"
 
-    compile files('./libs/css-engine-swing-api.jar')
-    compile files('./libs/tween-engine-api.jar')
+    implementation files('./libs/css-engine-swing-api.jar')
+    implementation files('./libs/tween-engine-api.jar')
 
 }
 
 sourceSets {
     main {
-        java
-                {
-                    srcDirs = ["src/main/java"]
-                }
+        java {
+            srcDirs = ["src/main/java"]
+        }
         resources.srcDirs = ["src/main/resources"]
         output.resourcesDir 'build/classes'
     }
 }
 
 jar {
-
     archiveFileName = "PhysicsBodyEditor.jar"
     manifest {
         attributes(
