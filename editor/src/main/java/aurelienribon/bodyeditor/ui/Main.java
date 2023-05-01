@@ -16,13 +16,13 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(final String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException |
-                     InstantiationException ex) {
-            }
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException |
+                 InstantiationException ex) {
+        }
 
+        SwingUtilities.invokeLater(() -> {
             LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
             LwjglCanvas glCanvas = new LwjglCanvas(new Canvas(), config);
             MainWindow mw = Ctx.window;

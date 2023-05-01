@@ -23,7 +23,7 @@ tasks.register('sourcesJar', Jar) {
 tasks.register('javadocJar', Jar) {
     dependsOn javadoc
     archiveClassifier = 'javadoc'
-    from javadoc.destinationDir
+    from javadoc
 }
 
 artifacts {
@@ -32,7 +32,7 @@ artifacts {
 }
 
 def prop(String key) {
-    hasProperty(key) ? property(key) : null
+    hasProperty(key) ? property(key).toString() : null
 }
 
 def ossrhUsername = prop("ossrhUsername")
@@ -40,7 +40,7 @@ def ossrhPassword = prop("ossrhPassword")
 
 if (ossrhUsername != null) publishing.repositories {
     maven {
-        def url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2")
+        url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2")
         name = "MavenCentral"
         credentials {
             username = ossrhUsername
@@ -50,13 +50,14 @@ if (ossrhUsername != null) publishing.repositories {
 }
 
 publishing.publications {
-    mavenJava(MavenPublication) {
-        pom {
-            artifactId 'box2d-editor-loader'
-            groupId 'org.ice1000.box2d-editor'
-            version project.version
-            from components.java
+    maven(MavenPublication) {
+        artifactId 'loader'
+        groupId 'org.ice1000.box2d-editor'
+        version project.version
+        from components.java
 
+        pom {
+            name = artifactId
             description = 'This project is a higher-order fork of a box2d editor loader for libgdx.'
             url = 'https://github.com/ice1000/box2d-editor'
             licenses {
@@ -84,12 +85,15 @@ publishing.publications {
                 }
             }
             scm {
-                connection = 'git@github.com:ice1000/box2d-editor-2023.git'
-                developerConnection = 'git@github.com:ice1000/box2d-editor-2023.git'
                 url = 'https://github.com/ice1000/box2d-editor-2023'
+                connection = "scm:git:${url}"
             }
         }
     }
+}
+
+signing {
+    sign publishing.publications.maven
 }
 
 sourceSets {
