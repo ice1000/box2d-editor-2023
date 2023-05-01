@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class BodiesList {
     private final Canvas canvas;

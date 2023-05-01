@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {

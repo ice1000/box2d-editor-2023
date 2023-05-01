@@ -19,7 +19,7 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.List;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class CanvasDrawer {
     private static final Color SHAPE_COLOR = new Color(0.0f, 0.0f, 0.8f, 1);

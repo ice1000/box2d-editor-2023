@@ -7,7 +7,7 @@ import aurelienribon.utils.notifications.ObservableList;
 import java.util.List;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class RigidBodiesManager extends ChangeableObject {
     public static final String PROP_SELECTION = "selection";

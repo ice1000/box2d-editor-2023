@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class Tracer {
     public static Vector2[][] trace(String path, float hullTolerance, int alphaTolerance, boolean multiPartDetection, boolean holeDetection) {

@@ -23,7 +23,7 @@ import java.awt.event.MouseListener;
 import java.io.File;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class RigidBodiesCreationDialog extends javax.swing.JDialog {
     private BalloonTip tip;

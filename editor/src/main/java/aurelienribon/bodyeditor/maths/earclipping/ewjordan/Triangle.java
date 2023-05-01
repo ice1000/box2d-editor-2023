@@ -1,7 +1,7 @@
 package aurelienribon.bodyeditor.maths.earclipping.ewjordan;
 
 /**
- * @author EwJordan (http://www.ewjordan.com/earClip/)
+ * @author EwJordan (<a href="http://www.ewjordan.com/earClip/">...</a>)
  */
 public class Triangle {
     public final float[] x;

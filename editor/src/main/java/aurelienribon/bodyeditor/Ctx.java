@@ -3,7 +3,7 @@ package aurelienribon.bodyeditor;
 import aurelienribon.bodyeditor.ui.MainWindow;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class Ctx {
     public static final IoManager io = new IoManager();

@@ -14,7 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.List;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class CreationInputProcessor extends InputAdapter {
     private final Canvas canvas;

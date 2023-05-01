@@ -3,7 +3,7 @@ package aurelienribon.utils.gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class SpriteUtils {
     public static boolean isOver(Sprite sp, float x, float y) {

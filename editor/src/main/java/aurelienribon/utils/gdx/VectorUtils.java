@@ -3,7 +3,7 @@ package aurelienribon.utils.gdx;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class VectorUtils {
     public static Vector2 mul(Vector2 v, float cx, float cy) {

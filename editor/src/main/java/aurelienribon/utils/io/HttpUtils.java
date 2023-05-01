@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
+ * @author Aurelien Ribon | <a href="<a">href="http://www.aurelienr</a>ibon.com/">...</a>
  */
 public class HttpUtils {
     public static DownloadTask downloadAsync(URL input, OutputStream output, Callback callback) {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com">...</a>
  */
 public class ChangeableObject implements Changeable {
     private final List<ChangeListener> changeListeners = new ArrayList<>(3);

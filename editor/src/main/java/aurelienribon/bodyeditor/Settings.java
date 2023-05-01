@@ -3,7 +3,7 @@ package aurelienribon.bodyeditor;
 import aurelienribon.bodyeditor.maths.Clipper.Polygonizer;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class Settings {
     public static boolean isImageDrawn = true;

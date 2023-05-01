@@ -7,7 +7,7 @@ import javax.swing.event.ListDataListener;
 import java.util.List;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com">...</a>
  */
 public class AutoListModel<T> implements ListModel<T> {
     private final EventListenerList listeners = new EventListenerList();

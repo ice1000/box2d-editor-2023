@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class RepairImagePathsDialog extends javax.swing.JDialog {
     private String commonPath;

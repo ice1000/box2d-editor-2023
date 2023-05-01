@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class ProjectPanel extends javax.swing.JPanel {
     public ProjectPanel() {

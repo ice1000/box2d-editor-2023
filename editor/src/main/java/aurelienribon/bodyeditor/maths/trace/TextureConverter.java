@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 /**
- * http://astroboid.x50.cc/blog/2010/06/mapping-box2d-shapes-from-textures/ A
+ * <a href="http://astroboid.x50.cc/blog/2010/06/mapping-box2d-shapes-from-textures/">...</a> A
  * mostly "blind" C# conversion of the TextureConverter code from Farseer, I
  * even left the original german comments in place. Seems to work.
  */
@@ -98,7 +98,7 @@ public class TextureConverter {
                                                 vertex2IndexRef)) {
 
                                             polygon.ensureCapacity(holePolygon.size);
-                                            for (int i = holePolygon.size - 1; i <= 0; i--) {
+                                            for (int i = holePolygon.size - 1; i >= 0; i--) {
                                                 polygon.insert(
                                                         vertex2IndexRef.v,
                                                         holePolygon.get(i));
@@ -146,7 +146,7 @@ public class TextureConverter {
 
     private static Vector2 GetHoleHullEntrance(PolygonCreationAssistance pca,
                                                Array<Vector2> polygon, Vector2 startVertex) throws Exception {
-        Array<CrossingEdgeInfo> edges = new Array<>();
+        Array<CrossingEdgeInfo> edges;
         Vector2 entrance;
         int startLine;
         int endLine;
@@ -342,7 +342,7 @@ public class TextureConverter {
         Vector2 edgeVertex2 = new Vector2();
         Vector2 slopePreview = new Vector2();
         Vector2 edgeVertexPreview = new Vector2();
-        Vector2 crossingPoint = new Vector2();
+        Vector2 crossingPoint;
         boolean addCrossingPoint;
         if (polygon.size > 1) {
             edgeVertex2.set(polygon.get(polygon.size - 1));
@@ -408,7 +408,7 @@ public class TextureConverter {
                 edges = GetCrossingEdges(polygon, EdgeAlignment.Vertical,
                         (int) coordInsideThePolygon.y);
                 foundEdgeCoord.y = coordInsideThePolygon.y;
-                if (edges != null && edges.size > 1 && edges.size % 2 == 0) {
+                if (edges.size > 1 && edges.size % 2 == 0) {
                     float distance;
                     for (int i = 0; i < edges.size; i++) {
                         if (edges.get(i).CrossingPoint.x < coordInsideThePolygon.x) {
@@ -636,7 +636,7 @@ public class TextureConverter {
             if (pca.IsSolid(i)) {
                 if (foundTransparent) {
                     x = i % pca.Width;
-                    entrance.set(x, (i - x) / pca.Width);
+                    entrance.set(x, (i - x) * 1f / pca.Width);
                     return true;
                 }
             } else {
@@ -861,7 +861,7 @@ class PolygonCreationAssistance {
             int data = Data[x + y * Width];
             long mask1 = (long) data & 0xFFFFFFFFL;
             long mask2 = mask1 & 0x000000FF;
-            Boolean opaque = mask2 >= _alphaTolerance;
+            boolean opaque = mask2 >= _alphaTolerance;
             if (opaque || mask2 != 0) {
                 int debug = 1;
             }
@@ -875,7 +875,7 @@ class PolygonCreationAssistance {
             int data = Data[index];
             long mask1 = (long) data & 0xFFFFFFFFL;
             long mask2 = mask1 & 0x000000FF;
-            Boolean opaque = mask2 >= _alphaTolerance;
+            boolean opaque = mask2 >= _alphaTolerance;
             if (opaque || mask2 != 0) {
                 int debug = 1;
             }

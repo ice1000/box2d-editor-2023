@@ -3,7 +3,7 @@ package aurelienribon.bodyeditor.maths.earclipping.ewjordan;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * Original code from EwJordan (http://www.ewjordan.com/earClip/)
+ * Original code from EwJordan (<a href="http://www.ewjordan.com/earClip/">...</a>)
  */
 public class EwjordanDecomposer {
     public static Vector2[][] decompose(Vector2[] points) {

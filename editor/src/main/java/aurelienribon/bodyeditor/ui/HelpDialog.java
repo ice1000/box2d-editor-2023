@@ -3,7 +3,7 @@ package aurelienribon.bodyeditor.ui;
 import javax.swing.*;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class HelpDialog extends javax.swing.JDialog {
     public HelpDialog(JFrame frame) {

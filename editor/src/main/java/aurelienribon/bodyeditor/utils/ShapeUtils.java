@@ -5,7 +5,7 @@ import aurelienribon.bodyeditor.models.ShapeModel;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class ShapeUtils {
     public static ShapeModel getShape(RigidBodyModel model, Vector2 v) {
