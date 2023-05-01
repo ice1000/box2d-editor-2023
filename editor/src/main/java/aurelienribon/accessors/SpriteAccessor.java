@@ -102,18 +102,18 @@ public class SpriteAccessor implements TweenAccessor<Sprite> {
                 target.setRotation(newValues[0]);
                 break;
 
-            case OPACITY:
+            case OPACITY: {
                 Color c = target.getColor();
                 c.set(c.r, c.g, c.b, newValues[0]);
                 target.setColor(c);
                 break;
-
-            case TINT:
-                c = target.getColor();
+            }
+            case TINT: {
+                Color c = target.getColor();
                 c.set(newValues[0], newValues[1], newValues[2], c.a);
                 target.setColor(c);
                 break;
-
+            }
             default:
                 assert false;
         }

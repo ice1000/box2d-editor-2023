@@ -15,7 +15,7 @@ import java.security.InvalidParameterException;
 public class BayazitDecomposer {
 
     public static final float Epsilon = 1.192092896e-07f;
-    public static int MaxPolygonVertices = 8;
+    public static final int MaxPolygonVertices = 8;
 
     public static Vector2 Cross(Vector2 a, float s) {
         return new Vector2(s * a.y, -s * a.x);
@@ -566,12 +566,11 @@ class SimplifyTools {
         // Gather points to process
         for (int i = 0; i < vertices.size; ++i) {
             int lower = (i == 0) ? (vertices.size - 1) : (i - 1);
-            int middle = i;
             int upper = (i == vertices.size - 1) ? (0) : (i + 1);
-            float dx0 = vertices.get(middle).x - vertices.get(lower).x;
-            float dy0 = vertices.get(middle).y - vertices.get(lower).y;
-            float dx1 = vertices.get(upper).y - vertices.get(middle).x;
-            float dy1 = vertices.get(upper).y - vertices.get(middle).y;
+            float dx0 = vertices.get(i).x - vertices.get(lower).x;
+            float dy0 = vertices.get(i).y - vertices.get(lower).y;
+            float dx1 = vertices.get(upper).y - vertices.get(i).x;
+            float dy1 = vertices.get(upper).y - vertices.get(i).y;
             float norm0 = (float) Math.sqrt(dx0 * dx0 + dy0 * dy0);
             float norm1 = (float) Math.sqrt(dx1 * dx1 + dy1 * dy1);
             if (!(norm0 > 0.0f && norm1 > 0.0f) && newNVertices > 3) {

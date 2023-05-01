@@ -4,8 +4,8 @@ package aurelienribon.bodyeditor.maths.earclipping.ewjordan;
  * @author EwJordan (http://www.ewjordan.com/earClip/)
  */
 public class Triangle {
-    public float[] x;
-    public float[] y;
+    public final float[] x;
+    public final float[] y;
 
     public Triangle(float x1, float y1, float x2, float y2, float x3, float y3) {
         x = new float[3];

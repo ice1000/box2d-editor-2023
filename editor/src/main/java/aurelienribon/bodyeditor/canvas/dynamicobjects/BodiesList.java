@@ -92,9 +92,7 @@ public class BodiesList {
 
         for (RigidBodyModel model : Ctx.bodies.getModels()) {
             float w = width - padding * 2;
-            float p = itemPadding;
-            Color c = itemBgColor;
-            BodiesListItem item = new BodiesListItem(model, w, w, p, font, c);
+            BodiesListItem item = new BodiesListItem(model, w, w, itemPadding, font, itemBgColor);
             items.add(item);
         }
     }

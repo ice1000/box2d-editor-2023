@@ -251,17 +251,11 @@ public class CanvasDrawer {
 
         for (ShapeModel shape : shapes) {
             for (Vector2 p : shape.getVertices()) {
-                if (p == nearestPoint || (selectedPoints != null && selectedPoints.contains(p))) {
-                    drawer.begin(ShapeRenderer.ShapeType.Filled);
-                    drawer.setColor(SHAPE_COLOR);
-                    drawer.rect(p.cpy().sub(w / 2, w / 2).x, p.cpy().sub(w / 2, w / 2).y, w, w);
-                    drawer.end();
-                } else {
-                    drawer.begin(ShapeRenderer.ShapeType.Line);
-                    drawer.setColor(SHAPE_COLOR);
-                    drawer.rect(p.cpy().sub(w / 2, w / 2).x, p.cpy().sub(w / 2, w / 2).y, w, w);
-                    drawer.end();
-                }
+                drawer.begin(p == nearestPoint || (selectedPoints != null && selectedPoints.contains(p))
+                        ? ShapeRenderer.ShapeType.Filled : ShapeRenderer.ShapeType.Line);
+                drawer.setColor(SHAPE_COLOR);
+                drawer.rect(p.cpy().sub(w / 2, w / 2).x, p.cpy().sub(w / 2, w / 2).y, w, w);
+                drawer.end();
             }
         }
 

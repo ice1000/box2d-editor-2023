@@ -60,8 +60,7 @@ public class TestInputProcessor extends InputAdapter {
         RigidBodyModel model = Ctx.bodies.getSelectedModel();
         if (model == null) return false;
 
-        Vector2 p = canvas.screenToWorld(x, y);
-        screen.ballThrowP2 = p;
+        screen.ballThrowP2 = canvas.screenToWorld(x, y);
         return false;
     }
 }

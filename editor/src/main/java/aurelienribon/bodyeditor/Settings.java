@@ -11,10 +11,10 @@ public class Settings {
     public static boolean isPolygonDrawn = true;
     public static boolean isPhysicsDebugEnabled = false;
     public static boolean isSnapToGridEnabled = false;
-    public static boolean isAxisShown = true;
+    public static final boolean isAxisShown = true;
     public static boolean isGridShown = false;
     public static float gridGap = 0.03f;
-    public static Polygonizer polygonizer = Polygonizer.BAYAZIT;
+    public static final Polygonizer polygonizer = Polygonizer.BAYAZIT;
     public static float autoTraceHullTolerance = 2.5f;
     public static int autoTraceAlphaTolerance = 128;
     public static boolean autoTraceMultiPartDetection = false;

@@ -36,12 +36,11 @@ public class Polygon {
         boolean isPositive = false;
         for (int i = 0; i < nVertices; ++i) {
             int lower = (i == 0) ? (nVertices - 1) : (i - 1);
-            int middle = i;
             int upper = (i == nVertices - 1) ? (0) : (i + 1);
-            float dx0 = x[middle] - x[lower];
-            float dy0 = y[middle] - y[lower];
-            float dx1 = x[upper] - x[middle];
-            float dy1 = y[upper] - y[middle];
+            float dx0 = x[i] - x[lower];
+            float dy0 = y[i] - y[lower];
+            float dx1 = x[upper] - x[i];
+            float dy1 = y[upper] - y[i];
             float cross = dx0 * dy1 - dx1 * dy0;
             //Cross product should have same sign
             //for each vertex if poly is convex.

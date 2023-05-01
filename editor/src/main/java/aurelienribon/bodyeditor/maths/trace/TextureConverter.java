@@ -219,7 +219,6 @@ public class TextureConverter {
                     }
                     edgeVertex2.set(polygon.get(i));
                 }
-                return true;
             } else {
                 for (int i = 0; i < polygon.size; i++) {
                     edgeVertex1.set(polygon.get(i));
@@ -229,8 +228,8 @@ public class TextureConverter {
                     }
                     edgeVertex2.set(polygon.get(i));
                 }
-                return true;
             }
+            return true;
         }
         return false;
     }
@@ -769,20 +768,19 @@ class CrossingEdgeInfo implements Comparable<CrossingEdgeInfo> {
     }
 
     public int compareTo(CrossingEdgeInfo obj) {
-        CrossingEdgeInfo cei = obj;
         int result = 0;
         switch (_alignment) {
             case Vertical:
-                if (_crossingPoint.x < cei.CrossingPoint.y) {
+                if (_crossingPoint.x < obj.CrossingPoint.y) {
                     result = -1;
-                } else if (_crossingPoint.x > cei.CrossingPoint.y) {
+                } else if (_crossingPoint.x > obj.CrossingPoint.y) {
                     result = 1;
                 }
                 break;
             case Horizontal:
-                if (_crossingPoint.y < cei.CrossingPoint.y) {
+                if (_crossingPoint.y < obj.CrossingPoint.y) {
                     result = -1;
-                } else if (_crossingPoint.y > cei.CrossingPoint.y) {
+                } else if (_crossingPoint.y > obj.CrossingPoint.y) {
                     result = 1;
                 }
                 break;
@@ -811,8 +809,8 @@ class PolygonCreationAssistance {
     }
 
     private final int[] Data;
-    public int Width;
-    public int Height;
+    public final int Width;
+    public final int Height;
 
     public int getAlphaTolerance() {
         return _alphaTolerance;
