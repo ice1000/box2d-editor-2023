@@ -17,7 +17,7 @@ import java.util.Map;
  * @author Aurelien Ribon | http://www.aurelienribon.com/
  */
 public class Assets extends AssetManager {
-    private static Assets instance = new Assets();
+    private static final Assets instance = new Assets();
 
     public static Assets inst() {
         return instance;

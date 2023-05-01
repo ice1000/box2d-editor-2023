@@ -6,7 +6,7 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class PanZoomInputProcessor extends InputAdapter {
     private final Canvas canvas;
@@ -40,15 +40,15 @@ public class PanZoomInputProcessor extends InputAdapter {
     }
 
     @Override
-    public boolean scrolled(int amount) {
-        if (zoomLevel == zoomLevels[0] && amount < 0) {
+    public boolean scrolled(float amountX, float amountY) {
+        if (zoomLevel == zoomLevels[0] && amountY < 0) {
             zoomLevel = zoomLevels[1];
-        } else if (zoomLevel == zoomLevels[zoomLevels.length - 1] && amount > 0) {
+        } else if (zoomLevel == zoomLevels[zoomLevels.length - 1] && amountY > 0) {
             zoomLevel = zoomLevels[zoomLevels.length - 2];
         } else {
             for (int i = 1; i < zoomLevels.length - 1; i++) {
                 if (zoomLevels[i] == zoomLevel) {
-                    zoomLevel = amount > 0 ? zoomLevels[i - 1] : zoomLevels[i + 1];
+                    zoomLevel = amountY > 0 ? zoomLevels[i - 1] : zoomLevels[i + 1];
                     break;
                 }
             }

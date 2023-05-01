@@ -8,6 +8,7 @@ import org.json.JSONException;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author Aurelien Ribon | http://www.aurelienribon.com/
@@ -33,7 +34,7 @@ public class IoManager extends ChangeableObject {
         assert projectFile != null;
 
         String str = JsonIo.serialize();
-        FileUtils.writeStringToFile(projectFile, str);
+        FileUtils.writeStringToFile(projectFile, str, StandardCharsets.UTF_8);
     }
 
     public void importFromFile() throws IOException, JSONException {
@@ -41,7 +42,7 @@ public class IoManager extends ChangeableObject {
         assert projectFile.isFile();
 
         Ctx.bodies.getModels().clear();
-        String str = FileUtils.readFileToString(projectFile);
+        String str = FileUtils.readFileToString(projectFile, StandardCharsets.UTF_8);
 
         JsonIo.deserialize(str);
     }
@@ -52,7 +53,6 @@ public class IoManager extends ChangeableObject {
 
     public File getImageFile(String imgPath) {
         if (imgPath == null) return null;
-        File file = new File(projectFile.getParent(), imgPath);
-        return file;
+        return new File(projectFile.getParent(), imgPath);
     }
 }
