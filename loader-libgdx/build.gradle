@@ -52,7 +52,7 @@ if (ossrhUsername != null) publishing.repositories {
 publishing.publications {
     maven(MavenPublication) {
         artifactId 'loader'
-        groupId 'org.ice1000.box2d-editor'
+        groupId 'org.aya-prover.box2d-editor'
         version project.version
         from components.java
 
@@ -63,7 +63,7 @@ publishing.publications {
             licenses {
                 license {
                     name = 'The Apache License, Version 2.0'
-                    url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
                 }
             }
             developers {

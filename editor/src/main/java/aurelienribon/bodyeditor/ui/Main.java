@@ -4,6 +4,7 @@ import aurelienribon.bodyeditor.Ctx;
 import aurelienribon.bodyeditor.canvas.Canvas;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.backends.lwjgl.LwjglCanvas;
+import com.bulenkov.darcula.DarculaLaf;
 import org.json.JSONException;
 
 import javax.swing.*;
@@ -17,9 +18,8 @@ import java.io.IOException;
 public class Main {
     public static void main(final String[] args) {
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException |
-                 InstantiationException ex) {
+            UIManager.setLookAndFeel(new DarculaLaf());
+        } catch (UnsupportedLookAndFeelException ex) {
         }
 
         SwingUtilities.invokeLater(() -> {

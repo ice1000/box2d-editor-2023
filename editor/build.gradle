@@ -15,11 +15,12 @@ dependencies {
     implementation "net.java.balloontip:balloontip:1.2.4.1"
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation "commons-io:commons-io:2.11.0"
+    // https://mvnrepository.com/artifact/org.json/json
     implementation "org.json:json:20230227"
+    implementation 'com.github.ice1k:darcula:2018.2'
 
     implementation files('./libs/css-engine-swing-api.jar')
     implementation files('./libs/tween-engine-api.jar')
-
 }
 
 sourceSets {
@@ -44,7 +45,6 @@ jar {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
-
 
 tasks.register('run', JavaExec) {
     dependsOn classes

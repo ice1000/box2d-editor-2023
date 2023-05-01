@@ -16,6 +16,7 @@ subprojects {
     repositories {
         // Good ole Maven central
         mavenCentral()
+        maven { url 'https://jitpack.io' }
 
         // Repos for LibGDX
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
