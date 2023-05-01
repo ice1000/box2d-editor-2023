@@ -45,7 +45,7 @@ public class Polygon {
             float cross = dx0 * dy1 - dx1 * dy0;
             //Cross product should have same sign
             //for each vertex if poly is convex.
-            boolean newIsP = (cross > 0) ? true : false;
+            boolean newIsP = cross > 0;
             if (i == 0) {
                 isPositive = newIsP;
             } else if (isPositive != newIsP) {

@@ -144,9 +144,9 @@ public class AutoTraceParamsDialog extends javax.swing.JDialog {
                                 .addContainerGap())
         );
 
-        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{jLabel1, jLabel2});
+        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, jLabel1, jLabel2);
 
-        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{cancelBtn, okBtn});
+        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, cancelBtn, okBtn);
 
         paintedPanel1Layout.setVerticalGroup(
                 paintedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +169,7 @@ public class AutoTraceParamsDialog extends javax.swing.JDialog {
                                 .addContainerGap())
         );
 
-        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[]{alphaToleranceSlider, hullToleranceSlider, jLabel1, jLabel2});
+        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, alphaToleranceSlider, hullToleranceSlider, jLabel1, jLabel2);
 
         commentLabel.setText("<html>\nOnly check multi-part detection or hole detection if your image needs it.<br/>\nRemember that auto-trace is less precise than manually placed points.");
         commentLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);

@@ -20,9 +20,9 @@ public class Label {
         Tween.registerAccessor(Label.class, new Accessor());
     }
 
-    public static enum Anchor {TOP_LEFT, BOTTOM_LEFT, TOP_RIGHT, BOTTOM_RIGHT}
+    public enum Anchor {TOP_LEFT, BOTTOM_LEFT, TOP_RIGHT, BOTTOM_RIGHT}
 
-    private static enum State {SHOWN, HIDDEN, HIDDEN_SEMI}
+    private enum State {SHOWN, HIDDEN, HIDDEN_SEMI}
 
     private String text;
     private Sprite icon;
@@ -30,7 +30,7 @@ public class Label {
     private final BitmapFont font;
     private final Color color;
     private final Anchor anchor;
-    private GlyphLayout layout = new GlyphLayout();
+    private final GlyphLayout layout = new GlyphLayout();
 
     private final TweenManager tweenManager = new TweenManager();
     private final Sprite bg;
@@ -59,12 +59,12 @@ public class Label {
     // Callback
     // -------------------------------------------------------------------------
 
-    public static interface TouchCallback {
-        public void touchDown(Label source);
+    public interface TouchCallback {
+        void touchDown(Label source);
 
-        public void touchEnter(Label source);
+        void touchEnter(Label source);
 
-        public void touchExit(Label source);
+        void touchExit(Label source);
     }
 
     // -------------------------------------------------------------------------
@@ -244,5 +244,4 @@ public class Label {
         }
     }
 
-    ;
 }

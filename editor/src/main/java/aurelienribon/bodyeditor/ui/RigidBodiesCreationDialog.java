@@ -286,7 +286,7 @@ public class RigidBodiesCreationDialog extends javax.swing.JDialog {
                                 .addContainerGap())
         );
 
-        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[]{b1CreateBtn, b1NameField});
+        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, b1CreateBtn, b1NameField);
 
         orLbl2.setText("- OR -");
 

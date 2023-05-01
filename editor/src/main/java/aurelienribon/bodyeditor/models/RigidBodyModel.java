@@ -53,7 +53,7 @@ public class RigidBodyModel extends ChangeableObject {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
-        this.isImagePathValid = imagePath == null ? true : Ctx.io.getImageFile(imagePath).isFile();
+        this.isImagePathValid = imagePath == null || Ctx.io.getImageFile(imagePath).isFile();
         firePropertyChanged(PROP_IMAGEPATH);
     }
 

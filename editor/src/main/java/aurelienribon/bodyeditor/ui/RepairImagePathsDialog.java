@@ -127,7 +127,7 @@ public class RepairImagePathsDialog extends javax.swing.JDialog {
                                 .addContainerGap())
         );
 
-        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{cancelBtn, okBtn});
+        paintedPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, cancelBtn, okBtn);
 
         paintedPanel1Layout.setVerticalGroup(
                 paintedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

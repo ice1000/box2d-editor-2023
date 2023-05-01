@@ -15,7 +15,7 @@ public class TextureConverter {
     // / 1.) Das Array welches ich bekomme am besten in einen boolean array
     // verwandeln. Wurde die Geschwindigkeit verbessern
     // / </summary>
-    private static int[][] ClosePixels = new int[][]{{-1, -1}, {0, -1},
+    private static final int[][] ClosePixels = new int[][]{{-1, -1}, {0, -1},
             {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}};
 
     public static Array<Vector2> createPolygon(int[] data, int width, int height)
@@ -749,12 +749,12 @@ enum EdgeAlignment {
 }
 
 class CrossingEdgeInfo implements Comparable<CrossingEdgeInfo> {
-    private EdgeAlignment _alignment;
-    private Vector2 _crossingPoint;
+    private final EdgeAlignment _alignment;
+    private final Vector2 _crossingPoint;
     @SuppressWarnings("unused")
-    private Vector2 _edgeVertex2;
+    private final Vector2 _edgeVertex2;
     @SuppressWarnings("unused")
-    private Vector2 _egdeVertex1;
+    private final Vector2 _egdeVertex1;
     public Vector2 EdgeVertex1;
     public Vector2 EdgeVertex2;
     public EdgeAlignment CheckLineAlignment;
@@ -810,7 +810,7 @@ class PolygonCreationAssistance {
         MultipartDetection = false;
     }
 
-    private int[] Data;
+    private final int[] Data;
     public int Width;
     public int Height;
 

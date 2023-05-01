@@ -44,7 +44,7 @@ public class Assets extends AssetManager {
         for (String tex : texturesNearest) load(tex, Texture.class);
         for (String tex : texturesLinear) load(tex, Texture.class);
 
-        while (update() == false) {
+        while (!update()) {
         }
 
         for (String tex : texturesLinear) {

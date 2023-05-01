@@ -64,7 +64,7 @@ public class ObservableList<T> extends ArrayList<T> {
     @Override
     public boolean remove(Object o) {
         boolean ret = super.remove(o);
-        if (ret == true) {
+        if (ret) {
             evtList1.clear();
             evtList1.add((T) o);
             fireElementsRemoved(evtList1);
@@ -88,7 +88,7 @@ public class ObservableList<T> extends ArrayList<T> {
         evtList1.clear();
         for (Object o : c) if (contains(o)) evtList1.add((T) o);
         boolean ret = super.removeAll(c);
-        if (ret == true) fireElementsRemoved(evtList1);
+        if (ret) fireElementsRemoved(evtList1);
         return ret;
     }
 
@@ -97,7 +97,7 @@ public class ObservableList<T> extends ArrayList<T> {
         evtList1.clear();
         for (T e : this) if (!c.contains(e)) evtList1.add(e);
         boolean ret = super.retainAll(c);
-        if (ret == true) fireElementsRemoved(evtList1);
+        if (ret) fireElementsRemoved(evtList1);
         return ret;
     }
 
@@ -147,8 +147,8 @@ public class ObservableList<T> extends ArrayList<T> {
 
     private final EventListenerList listeners = new EventListenerList();
 
-    public static interface ListChangeListener<T> extends EventListener {
-        public void changed(Object source, List<T> added, List<T> removed);
+    public interface ListChangeListener<T> extends EventListener {
+        void changed(Object source, List<T> added, List<T> removed);
     }
 
     public void addListChangedListener(ListChangeListener<T> listener) {

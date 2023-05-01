@@ -251,7 +251,7 @@ public class App extends ApplicationAdapter {
         Vector2 vec = new Vector2();
 
         for (int i = 0; i < MAX_BALLS; i++) {
-            float tx = rand.nextFloat() * 1.0f - 0.5f;
+            float tx = rand.nextFloat() - 0.5f;
             float ty = camera.position.y + camera.viewportHeight / 2 + BALL_RADIUS;
             float angle = rand.nextFloat() * MathUtils.PI * 2;
 

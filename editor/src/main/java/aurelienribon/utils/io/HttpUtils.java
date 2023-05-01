@@ -24,14 +24,14 @@ public class HttpUtils {
         return task;
     }
 
-    public static interface Callback {
-        public void completed();
+    public interface Callback {
+        void completed();
 
-        public void canceled();
+        void canceled();
 
-        public void error(IOException ex);
+        void error(IOException ex);
 
-        public void updated(int length, int totalLength);
+        void updated(int length, int totalLength);
     }
 
     public static class DownloadTask {
@@ -105,7 +105,7 @@ public class HttpUtils {
 
                 if (callback != null) {
                     if (ex != null) callback.error(ex);
-                    else if (run == true) callback.completed();
+                    else if (run) callback.completed();
                     else callback.canceled();
                 }
             }

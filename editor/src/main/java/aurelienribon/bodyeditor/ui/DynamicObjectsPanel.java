@@ -348,7 +348,7 @@ public class DynamicObjectsPanel extends javax.swing.JPanel {
         jPanel1.setOpaque(false);
 
         list.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
+            final String[] strings = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
 
             public int getSize() {
                 return strings.length;

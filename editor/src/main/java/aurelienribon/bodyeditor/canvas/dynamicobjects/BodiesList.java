@@ -31,11 +31,11 @@ public class BodiesList {
 
     private final TweenManager tweenManager = new TweenManager();
     private final BitmapFont font;
-    private float width = 70;
-    private float padding = 5;
-    private Color bgColor = new Color(0x2A / 255f, 0x3B / 255f, 0x56 / 255f, 180 / 255f);
-    private float itemPadding = 5;
-    private Color itemBgColor = new Color(0x2A / 255f, 0x3B / 255f, 0x56 / 255f, 180 / 255f);
+    private final float width = 70;
+    private final float padding = 5;
+    private final Color bgColor = new Color(0x2A / 255f, 0x3B / 255f, 0x56 / 255f, 180 / 255f);
+    private final float itemPadding = 5;
+    private final Color itemBgColor = new Color(0x2A / 255f, 0x3B / 255f, 0x56 / 255f, 180 / 255f);
     private BodyTuple draggedBody;
     private boolean draggedBodyAdded = false;
 

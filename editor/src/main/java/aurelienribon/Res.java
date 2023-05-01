@@ -10,7 +10,7 @@ import java.util.Map;
  * @author Aurelien Ribon | http://www.aurelienribon.com/
  */
 public class Res {
-    private static Map<String, ImageIcon> imageIcons = new HashMap<String, ImageIcon>();
+    private static final Map<String, ImageIcon> imageIcons = new HashMap<String, ImageIcon>();
 
     public static ImageIcon getImage(String name) {
         if (!imageIcons.containsKey(name)) {

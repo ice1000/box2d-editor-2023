@@ -108,14 +108,12 @@ public class CreationInputProcessor extends InputAdapter {
 
     @Override
     public boolean keyDown(int keycode) {
-        switch (keycode) {
-            case Input.Keys.ESCAPE:
-                RigidBodyModel model = Ctx.bodies.getSelectedModel();
-                if (model == null) break;
-                if (model.getShapes().isEmpty()) break;
-                if (model.getShapes().get(model.getShapes().size() - 1).isClosed()) break;
-                model.getShapes().remove(model.getShapes().size() - 1);
-                break;
+        if (keycode == Input.Keys.ESCAPE) {
+            RigidBodyModel model = Ctx.bodies.getSelectedModel();
+            if (model == null) return false;
+            if (model.getShapes().isEmpty()) return false;
+            if (model.getShapes().get(model.getShapes().size() - 1).isClosed()) return false;
+            model.getShapes().remove(model.getShapes().size() - 1);
         }
         return false;
     }

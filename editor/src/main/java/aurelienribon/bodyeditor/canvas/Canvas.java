@@ -173,8 +173,8 @@ public class Canvas extends ApplicationAdapter {
 
     private final List<Listener> listeners = new CopyOnWriteArrayList<Listener>();
 
-    public static interface Listener {
-        public void modeChanged(Mode mode);
+    public interface Listener {
+        void modeChanged(Mode mode);
     }
 
     public void addListener(Listener listener) {

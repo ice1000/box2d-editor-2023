@@ -50,7 +50,7 @@ public class DynamicObjectsScreen {
 
         @Override
         public boolean touchDown(int x, int y, int pointer, int button) {
-            if (button == Buttons.LEFT) if (bodiesList.touchDown(x, y)) return true;
+            if (button == Buttons.LEFT) return bodiesList.touchDown(x, y);
             return false;
         }
 

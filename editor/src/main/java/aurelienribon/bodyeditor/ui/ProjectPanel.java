@@ -213,7 +213,7 @@ public class ProjectPanel extends javax.swing.JPanel {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[]{jLabel1, prjPathField});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, jLabel1, prjPathField);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents

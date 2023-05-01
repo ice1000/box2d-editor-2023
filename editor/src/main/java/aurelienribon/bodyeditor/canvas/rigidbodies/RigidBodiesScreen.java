@@ -476,7 +476,7 @@ public class RigidBodiesScreen {
             switch (shape.getType()) {
                 case POLYGON:
                     for (Vector2 p : selectedPoints) {
-                        if (shape.getVertices().contains(p)) shape.getVertices().remove(p);
+                        shape.getVertices().remove(p);
                     }
                     if (shape.getVertices().isEmpty()) shapes.remove(i);
                     break;
@@ -601,8 +601,7 @@ public class RigidBodiesScreen {
     private boolean isImageValid() {
         RigidBodyModel model = Ctx.bodies.getSelectedModel();
         if (model == null) return false;
-        if (model.getImagePath() == null || !model.isImagePathValid()) return false;
-        return true;
+        return model.getImagePath() != null && model.isImagePathValid();
     }
 
     private void autoTrace() {
