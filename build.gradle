@@ -4,7 +4,7 @@ buildscript {
     }
 }
 
-allprojects {
+subprojects {
     apply plugin: "idea"
 
     version = '3.0.0'
@@ -21,8 +21,4 @@ allprojects {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
     }
-}
-
-cleanIdea.doLast {
-    new File('box2d-editor.iws').delete()
 }

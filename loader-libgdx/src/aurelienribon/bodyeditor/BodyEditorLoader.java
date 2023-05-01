@@ -27,13 +27,15 @@ public class BodyEditorLoader {
     private final Vector2 vec = new Vector2();
 
     public BodyEditorLoader(FileHandle file) {
-        assert file != null;
-        model = readJson(file.readString());
+        this(readJson(file.readString()));
     }
 
     public BodyEditorLoader(String str) {
-        assert str != null;
-        model = readJson(str);
+        this(readJson(str));
+    }
+
+    public BodyEditorLoader(Model model) {
+        this.model = model;
     }
 
     /**
@@ -154,7 +156,7 @@ public class BodyEditorLoader {
         public float radius;
     }
 
-    private Model readJson(String str) {
+    private static Model readJson(String str) {
         Model model = new Model();
 
         JsonValue map = new JsonReader().parse(str);
@@ -167,7 +169,7 @@ public class BodyEditorLoader {
         return model;
     }
 
-    private RigidBodyModel readRigidBody(JsonValue rbJson) {
+    private static RigidBodyModel readRigidBody(JsonValue rbJson) {
         RigidBodyModel rbModel = new RigidBodyModel();
         rbModel.name = rbJson.get("name").asString();
         rbModel.imagePath = rbJson.get("imagePath").asString();

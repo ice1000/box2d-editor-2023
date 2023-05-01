@@ -49,6 +49,48 @@ if (ossrhUsername != null) publishing.repositories {
     }
 }
 
+publishing.publications {
+    mavenJava(MavenPublication) {
+        pom {
+            artifactId 'box2d-editor-loader'
+            groupId 'org.ice1000.box2d-editor'
+            version project.version
+            from components.java
+
+            description = 'This project is a higher-order fork of a box2d editor loader for libgdx.'
+            url = 'https://github.com/ice1000/box2d-editor'
+            licenses {
+                license {
+                    name = 'The Apache License, Version 2.0'
+                    url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                }
+            }
+            developers {
+                developer {
+                    id = 'ice1000'
+                    name = 'Tesla Zhang'
+                    email = 'ice1000kotlin@foxmail.com'
+                }
+                developer {
+                    id = 'simoarpe'
+                    name = 'Simone Arpe'
+                    email = 'simon.arpe@gmail.com'
+                }
+                // If only they can write these parts themselves...
+                developer {
+                    id = 'MovingBlocks'
+                    name = 'Rasmus Praestholm et al.'
+                    email = 'cervator@gmail.com'
+                }
+            }
+            scm {
+                connection = 'git@github.com:ice1000/box2d-editor-2023.git'
+                developerConnection = 'git@github.com:ice1000/box2d-editor-2023.git'
+                url = 'https://github.com/ice1000/box2d-editor-2023'
+            }
+        }
+    }
+}
 
 sourceSets {
     main {
