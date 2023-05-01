@@ -14,7 +14,7 @@ dependencies {
     // https://mvnrepository.com/artifact/net.java.balloontip/balloontip
     implementation "net.java.balloontip:balloontip:1.2.4.1"
     // https://mvnrepository.com/artifact/commons-io/commons-io
-    implementation "commons-io:commons-io:2.11.1"
+    implementation "commons-io:commons-io:2.11.0"
     implementation "org.json:json:20230227"
 
     implementation files('./libs/css-engine-swing-api.jar')
@@ -36,7 +36,7 @@ jar {
     archiveFileName = "PhysicsBodyEditor.jar"
     manifest {
         attributes(
-                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Class-Path': configurations.runtimeClasspath.collect { it.getName() }.join(' '),
                 'Main-Class': "$mainClassName"
         )
     }
