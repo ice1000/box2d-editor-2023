@@ -1,4 +1,6 @@
-apply plugin: "java"
+apply plugin: "java-library"
+apply plugin: "maven-publish"
+apply plugin: "signing"
 
 sourceCompatibility = 1.8
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
@@ -11,6 +13,42 @@ dependencies {
     implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion"
     implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 }
+
+tasks.register('sourcesJar', Jar) {
+    dependsOn classes
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+tasks.register('javadocJar', Jar) {
+    dependsOn javadoc
+    archiveClassifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+def prop(String key) {
+    hasProperty(key) ? property(key) : null
+}
+
+def ossrhUsername = prop("ossrhUsername")
+def ossrhPassword = prop("ossrhPassword")
+
+if (ossrhUsername != null) publishing.repositories {
+    maven {
+        def url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2")
+        name = "MavenCentral"
+        credentials {
+            username = ossrhUsername
+            password = ossrhPassword
+        }
+    }
+}
+
 
 sourceSets {
     main {
