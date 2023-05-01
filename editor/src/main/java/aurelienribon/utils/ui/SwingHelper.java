@@ -22,12 +22,9 @@ public class SwingHelper {
         if (source instanceof Window) {
             ((Window) source).addWindowListener(listener);
         } else {
-            source.addHierarchyListener(new HierarchyListener() {
-                @Override
-                public void hierarchyChanged(HierarchyEvent e) {
-                    if ((e.getChangeFlags() & HierarchyEvent.SHOWING_CHANGED) == HierarchyEvent.SHOWING_CHANGED) {
-                        SwingUtilities.getWindowAncestor(source).addWindowListener(listener);
-                    }
+            source.addHierarchyListener(e -> {
+                if ((e.getChangeFlags() & HierarchyEvent.SHOWING_CHANGED) == HierarchyEvent.SHOWING_CHANGED) {
+                    SwingUtilities.getWindowAncestor(source).addWindowListener(listener);
                 }
             });
         }

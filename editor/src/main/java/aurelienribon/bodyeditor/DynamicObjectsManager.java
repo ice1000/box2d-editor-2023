@@ -12,15 +12,12 @@ import java.util.List;
 public class DynamicObjectsManager extends ChangeableObject {
     public static final String PROP_SELECTION = "selection";
 
-    private final ObservableList<DynamicObjectModel> models = new ObservableList<DynamicObjectModel>(this);
+    private final ObservableList<DynamicObjectModel> models = new ObservableList<>(this);
     private DynamicObjectModel selectedModel = null;
 
     public DynamicObjectsManager() {
-        models.addListChangedListener(new ObservableList.ListChangeListener<DynamicObjectModel>() {
-            @Override
-            public void changed(Object source, List<DynamicObjectModel> added, List<DynamicObjectModel> removed) {
-                if (!models.contains(selectedModel)) select(null);
-            }
+        models.addListChangedListener((source, added, removed) -> {
+            if (!models.contains(selectedModel)) select(null);
         });
     }
 

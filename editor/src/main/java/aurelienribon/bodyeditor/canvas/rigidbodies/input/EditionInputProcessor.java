@@ -152,7 +152,7 @@ public class EditionInputProcessor extends InputAdapter {
 
     private List<Vector2> getPointsInSelection() {
         RigidBodyModel model = Ctx.bodies.getSelectedModel();
-        List<Vector2> points = new ArrayList<Vector2>();
+        List<Vector2> points = new ArrayList<>();
         Vector2 p1 = screen.mouseSelectionP1;
         Vector2 p2 = screen.mouseSelectionP2;
 
@@ -174,7 +174,7 @@ public class EditionInputProcessor extends InputAdapter {
     }
 
     private List<Vector2> getAllPoints() {
-        List<Vector2> points = new ArrayList<Vector2>();
+        List<Vector2> points = new ArrayList<>();
         RigidBodyModel model = Ctx.bodies.getSelectedModel();
 
         for (ShapeModel shape : model.getShapes()) {

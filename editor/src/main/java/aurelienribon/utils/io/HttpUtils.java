@@ -8,18 +8,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * @author Aurelien Ribon | http://www.aurelienribon.com/
+ * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
  */
 public class HttpUtils {
     public static DownloadTask downloadAsync(URL input, OutputStream output, Callback callback) {
         final DownloadTask task = new DownloadTask(input, output, callback);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                task.download();
-            }
-        }).start();
+        new Thread(task::download).start();
 
         return task;
     }

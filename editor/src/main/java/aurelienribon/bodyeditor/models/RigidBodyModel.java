@@ -18,9 +18,9 @@ public class RigidBodyModel extends ChangeableObject {
     public static final String PROP_PHYSICS = "physics";
 
     private final Vector2 origin = new Vector2(0, 0);
-    private final List<ShapeModel> shapes = new ArrayList<ShapeModel>();
-    private final List<PolygonModel> polygons = new ArrayList<PolygonModel>();
-    private final List<CircleModel> circles = new ArrayList<CircleModel>();
+    private final List<ShapeModel> shapes = new ArrayList<>();
+    private final List<PolygonModel> polygons = new ArrayList<>();
+    private final List<CircleModel> circles = new ArrayList<>();
     private String name = "unamed";
     private String imagePath;
     private boolean isImagePathValid = true;

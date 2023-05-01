@@ -28,15 +28,12 @@ public class DynamicObjectsScreen {
 
         canvas.input.addProcessor(bodiesListInputProcessor);
 
-        canvas.addListener(new Canvas.Listener() {
-            @Override
-            public void modeChanged(Canvas.Mode mode) {
-                if (mode == Canvas.Mode.OBJECTS) {
-                    bodiesList.updateItems();
-                    bodiesList.show();
-                } else {
-                    bodiesList.hide();
-                }
+        canvas.addListener(mode -> {
+            if (mode == Canvas.Mode.OBJECTS) {
+                bodiesList.updateItems();
+                bodiesList.show();
+            } else {
+                bodiesList.hide();
             }
         });
     }

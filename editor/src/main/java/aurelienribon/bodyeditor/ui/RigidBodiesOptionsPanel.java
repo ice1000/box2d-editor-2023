@@ -14,48 +14,13 @@ public class RigidBodiesOptionsPanel extends javax.swing.JPanel {
     public RigidBodiesOptionsPanel() {
         initComponents();
 
-        drawImageChk.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateOptions();
-            }
-        });
-        drawShapeChk.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateOptions();
-            }
-        });
-        drawPolysChk.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateOptions();
-            }
-        });
-        debugPhysicsChk.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateOptions();
-            }
-        });
-        drawGridChk.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateOptions();
-            }
-        });
-        enableSnapToGridChk.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateOptions();
-            }
-        });
-        gridGapSpinner.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                updateOptions();
-            }
-        });
+        drawImageChk.addActionListener(e -> updateOptions());
+        drawShapeChk.addActionListener(e -> updateOptions());
+        drawPolysChk.addActionListener(e -> updateOptions());
+        debugPhysicsChk.addActionListener(e -> updateOptions());
+        drawGridChk.addActionListener(e -> updateOptions());
+        enableSnapToGridChk.addActionListener(e -> updateOptions());
+        gridGapSpinner.addChangeListener(e -> updateOptions());
     }
 
     private void updateOptions() {

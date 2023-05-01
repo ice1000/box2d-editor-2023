@@ -34,48 +34,18 @@ public class RigidBodiesPanel extends javax.swing.JPanel {
 
         Style.registerCssClasses(headerPanel, ".headerPanel");
 
-        final AutoListModel<RigidBodyModel> listModel = new AutoListModel<RigidBodyModel>(Ctx.bodies.getModels());
+        final AutoListModel<RigidBodyModel> listModel = new AutoListModel<>(Ctx.bodies.getModels());
         list.setModel(listModel);
         list.addListSelectionListener(listSelectionListener);
         list.setCellRenderer(listCellRenderer);
         Ctx.bodies.addChangeListener(listModelChangeListener);
 
-        createBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                create();
-            }
-        });
-        renameBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rename();
-            }
-        });
-        deleteBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                delete();
-            }
-        });
-        upBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                moveUp();
-            }
-        });
-        downBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                moveDown();
-            }
-        });
-        repairBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                repair();
-            }
-        });
+        createBtn.addActionListener(e -> create());
+        renameBtn.addActionListener(e -> rename());
+        deleteBtn.addActionListener(e -> delete());
+        upBtn.addActionListener(e -> moveUp());
+        downBtn.addActionListener(e -> moveDown());
+        repairBtn.addActionListener(e -> repair());
 
         createBtn.setEnabled(false);
         renameBtn.setEnabled(false);
@@ -84,42 +54,28 @@ public class RigidBodiesPanel extends javax.swing.JPanel {
         downBtn.setEnabled(false);
         repairBtn.setEnabled(false);
 
-        Ctx.io.addChangeListener(new ChangeListener() {
-            @Override
-            public void propertyChanged(Object source, String propertyName) {
-                createBtn.setEnabled(Ctx.io.getProjectFile() != null);
-            }
+        Ctx.io.addChangeListener((source, propertyName) -> createBtn.setEnabled(Ctx.io.getProjectFile() != null));
+
+        Ctx.objects.addChangeListener((source, propertyName) -> {
+            if (!propertyName.equals(DynamicObjectsManager.PROP_SELECTION)) return;
+            if (Ctx.objects.getSelectedModel() != null) Ctx.bodies.select(null);
         });
 
-        Ctx.objects.addChangeListener(new ChangeListener() {
-            @Override
-            public void propertyChanged(Object source, String propertyName) {
-                if (!propertyName.equals(DynamicObjectsManager.PROP_SELECTION)) return;
-                if (Ctx.objects.getSelectedModel() != null) Ctx.bodies.select(null);
-            }
-        });
-
-        final ChangeListener modelChangeListener = new ChangeListener() {
-            @Override
-            public void propertyChanged(Object source, String propertyName) {
-                repairBtn.setEnabled(false);
-                for (RigidBodyModel model : Ctx.bodies.getModels()) {
-                    if (!model.isImagePathValid()) repairBtn.setEnabled(true);
-                }
+        final ChangeListener modelChangeListener = (source, propertyName) -> {
+            repairBtn.setEnabled(false);
+            for (RigidBodyModel model : Ctx.bodies.getModels()) {
+                if (!model.isImagePathValid()) repairBtn.setEnabled(true);
             }
         };
 
-        Ctx.bodies.getModels().addListChangedListener(new ObservableList.ListChangeListener<RigidBodyModel>() {
-            @Override
-            public void changed(Object source, List<RigidBodyModel> added, List<RigidBodyModel> removed) {
-                repairBtn.setEnabled(false);
-                for (RigidBodyModel model : Ctx.bodies.getModels()) {
-                    if (!model.isImagePathValid()) repairBtn.setEnabled(true);
-                }
-
-                for (RigidBodyModel m : added) m.addChangeListener(modelChangeListener);
-                for (RigidBodyModel m : removed) m.removeChangeListener(modelChangeListener);
+        Ctx.bodies.getModels().addListChangedListener((source, added, removed) -> {
+            repairBtn.setEnabled(false);
+            for (RigidBodyModel model : Ctx.bodies.getModels()) {
+                if (!model.isImagePathValid()) repairBtn.setEnabled(true);
             }
+
+            for (RigidBodyModel m : added) m.addChangeListener(modelChangeListener);
+            for (RigidBodyModel m : removed) m.removeChangeListener(modelChangeListener);
         });
     }
 
@@ -159,7 +115,7 @@ public class RigidBodiesPanel extends javax.swing.JPanel {
 
     private void moveUp() {
         final List<RigidBodyModel> selectedModels = new ArrayList<RigidBodyModel>(list.getSelectedValuesList());
-        final Map<RigidBodyModel, Integer> idxs = new HashMap<RigidBodyModel, Integer>();
+        final Map<RigidBodyModel, Integer> idxs = new HashMap<>();
 
         assert !selectedModels.isEmpty();
 
@@ -169,15 +125,10 @@ public class RigidBodiesPanel extends javax.swing.JPanel {
             idxs.put((RigidBodyModel) model, idx);
         }
 
-        Collections.sort(selectedModels, new Comparator<RigidBodyModel>() {
-            @Override
-            public int compare(RigidBodyModel o1, RigidBodyModel o2) {
-                int idx1 = idxs.get(o1);
-                int idx2 = idxs.get(o2);
-                if (idx1 < idx2) return -1;
-                if (idx1 > idx2) return 1;
-                return 0;
-            }
+        selectedModels.sort((o1, o2) -> {
+            int idx1 = idxs.get(o1);
+            int idx2 = idxs.get(o2);
+            return Integer.compare(idx1, idx2);
         });
 
         for (RigidBodyModel model : selectedModels) {
@@ -193,7 +144,7 @@ public class RigidBodiesPanel extends javax.swing.JPanel {
 
     private void moveDown() {
         final List<RigidBodyModel> selectedModels = new ArrayList<RigidBodyModel>(list.getSelectedValuesList());
-        final Map<RigidBodyModel, Integer> idxs = new HashMap<RigidBodyModel, Integer>();
+        final Map<RigidBodyModel, Integer> idxs = new HashMap<>();
 
         assert !selectedModels.isEmpty();
 
@@ -203,15 +154,10 @@ public class RigidBodiesPanel extends javax.swing.JPanel {
             idxs.put((RigidBodyModel) model, idx);
         }
 
-        Collections.sort(selectedModels, new Comparator<RigidBodyModel>() {
-            @Override
-            public int compare(RigidBodyModel o1, RigidBodyModel o2) {
-                int idx1 = idxs.get(o1);
-                int idx2 = idxs.get(o2);
-                if (idx1 < idx2) return 1;
-                if (idx1 > idx2) return -1;
-                return 0;
-            }
+        selectedModels.sort((o1, o2) -> {
+            int idx1 = idxs.get(o1);
+            int idx2 = idxs.get(o2);
+            return Integer.compare(idx2, idx1);
         });
 
         for (RigidBodyModel model : selectedModels) {

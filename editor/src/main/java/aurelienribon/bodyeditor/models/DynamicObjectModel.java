@@ -9,7 +9,7 @@ import java.util.List;
  * @author Aurelien Ribon | http://www.aurelienribon.com/
  */
 public class DynamicObjectModel extends ChangeableObject {
-    private final List<BodyTuple> tuples = new ArrayList<BodyTuple>();
+    private final List<BodyTuple> tuples = new ArrayList<>();
     private String name;
 
     public void addTuple(BodyTuple tuple) {

@@ -31,42 +31,17 @@ public class DynamicObjectsPanel extends javax.swing.JPanel {
 
         Style.registerCssClasses(headerPanel, ".headerPanel");
 
-        final AutoListModel<DynamicObjectModel> listModel = new AutoListModel<DynamicObjectModel>(Ctx.objects.getModels());
+        final AutoListModel<DynamicObjectModel> listModel = new AutoListModel<>(Ctx.objects.getModels());
         list.setModel(listModel);
         list.addListSelectionListener(listSelectionListener);
         list.setCellRenderer(listCellRenderer);
         Ctx.objects.addChangeListener(listModelChangeListener);
 
-        createBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                create();
-            }
-        });
-        renameBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rename();
-            }
-        });
-        deleteBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                delete();
-            }
-        });
-        upBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                moveUp();
-            }
-        });
-        downBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                moveDown();
-            }
-        });
+        createBtn.addActionListener(e -> create());
+        renameBtn.addActionListener(e -> rename());
+        deleteBtn.addActionListener(e -> delete());
+        upBtn.addActionListener(e -> moveUp());
+        downBtn.addActionListener(e -> moveDown());
 
         createBtn.setEnabled(false);
         renameBtn.setEnabled(false);
@@ -74,19 +49,11 @@ public class DynamicObjectsPanel extends javax.swing.JPanel {
         upBtn.setEnabled(false);
         downBtn.setEnabled(false);
 
-        Ctx.io.addChangeListener(new ChangeListener() {
-            @Override
-            public void propertyChanged(Object source, String propertyName) {
-                createBtn.setEnabled(Ctx.io.getProjectFile() != null);
-            }
-        });
+        Ctx.io.addChangeListener((source, propertyName) -> createBtn.setEnabled(Ctx.io.getProjectFile() != null));
 
-        Ctx.bodies.addChangeListener(new ChangeListener() {
-            @Override
-            public void propertyChanged(Object source, String propertyName) {
-                if (!propertyName.equals(RigidBodiesManager.PROP_SELECTION)) return;
-                if (Ctx.bodies.getSelectedModel() != null) Ctx.objects.select(null);
-            }
+        Ctx.bodies.addChangeListener((source, propertyName) -> {
+            if (!propertyName.equals(RigidBodiesManager.PROP_SELECTION)) return;
+            if (Ctx.bodies.getSelectedModel() != null) Ctx.objects.select(null);
         });
     }
 
@@ -131,7 +98,7 @@ public class DynamicObjectsPanel extends javax.swing.JPanel {
 
     private void moveUp() {
         final List<DynamicObjectModel> selectedModels = new ArrayList<DynamicObjectModel>(list.getSelectedValuesList());
-        final Map<DynamicObjectModel, Integer> idxs = new HashMap<DynamicObjectModel, Integer>();
+        final Map<DynamicObjectModel, Integer> idxs = new HashMap<>();
 
         assert !selectedModels.isEmpty();
 
@@ -141,15 +108,10 @@ public class DynamicObjectsPanel extends javax.swing.JPanel {
             idxs.put((DynamicObjectModel) model, idx);
         }
 
-        Collections.sort(selectedModels, new Comparator<DynamicObjectModel>() {
-            @Override
-            public int compare(DynamicObjectModel o1, DynamicObjectModel o2) {
-                int idx1 = idxs.get(o1);
-                int idx2 = idxs.get(o2);
-                if (idx1 < idx2) return -1;
-                if (idx1 > idx2) return 1;
-                return 0;
-            }
+        selectedModels.sort((o1, o2) -> {
+            int idx1 = idxs.get(o1);
+            int idx2 = idxs.get(o2);
+            return Integer.compare(idx1, idx2);
         });
 
         for (DynamicObjectModel model : selectedModels) {
@@ -165,7 +127,7 @@ public class DynamicObjectsPanel extends javax.swing.JPanel {
 
     private void moveDown() {
         final List<DynamicObjectModel> selectedModels = new ArrayList<DynamicObjectModel>(list.getSelectedValuesList());
-        final Map<DynamicObjectModel, Integer> idxs = new HashMap<DynamicObjectModel, Integer>();
+        final Map<DynamicObjectModel, Integer> idxs = new HashMap<>();
 
         assert !selectedModels.isEmpty();
 
@@ -175,15 +137,10 @@ public class DynamicObjectsPanel extends javax.swing.JPanel {
             idxs.put((DynamicObjectModel) model, idx);
         }
 
-        Collections.sort(selectedModels, new Comparator<DynamicObjectModel>() {
-            @Override
-            public int compare(DynamicObjectModel o1, DynamicObjectModel o2) {
-                int idx1 = idxs.get(o1);
-                int idx2 = idxs.get(o2);
-                if (idx1 < idx2) return 1;
-                if (idx1 > idx2) return -1;
-                return 0;
-            }
+        selectedModels.sort((o1, o2) -> {
+            int idx1 = idxs.get(o1);
+            int idx2 = idxs.get(o2);
+            return Integer.compare(idx2, idx1);
         });
 
         for (DynamicObjectModel model : selectedModels) {

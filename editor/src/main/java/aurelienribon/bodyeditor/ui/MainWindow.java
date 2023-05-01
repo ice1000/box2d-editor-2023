@@ -120,12 +120,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         };
 
-        Timer timer = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                HttpUtils.downloadAsync(url, stream, callback);
-            }
-        });
+        Timer timer = new Timer(1000, e -> HttpUtils.downloadAsync(url, stream, callback));
 
         timer.setRepeats(false);
         timer.start();

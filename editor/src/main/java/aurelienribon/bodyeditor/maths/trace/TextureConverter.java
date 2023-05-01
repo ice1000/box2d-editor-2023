@@ -49,12 +49,12 @@ public class TextureConverter {
 
     private static Array<Array<Vector2>> createPolygon(
             PolygonCreationAssistance pca) throws Exception {
-        Array<Array<Vector2>> polygons = new Array<Array<Vector2>>();
+        Array<Array<Vector2>> polygons = new Array<>();
         Array<Vector2> polygon;
         Array<Vector2> holePolygon;
         Vector2 holeEntrance = null;
         Vector2 polygonEntrance = null;
-        Array<Vector2> blackList = new Array<Vector2>();
+        Array<Vector2> blackList = new Array<>();
         // First of all: Check the array you just got.
         if (pca.IsValid()) {
             boolean searchOn;
@@ -88,9 +88,9 @@ public class TextureConverter {
                                     if (holePolygon != null
                                             && holePolygon.size > 2) {
                                         holePolygon.add(holePolygon.get(0));
-                                        Reference<Integer> vertex2IndexRef = new Reference<Integer>(
+                                        Reference<Integer> vertex2IndexRef = new Reference<>(
                                                 0);
-                                        Reference<Integer> vertex1IndexRef = new Reference<Integer>(
+                                        Reference<Integer> vertex1IndexRef = new Reference<>(
                                                 0);
                                         if (SplitPolygonEdge(polygon,
                                                 EdgeAlignment.Vertical,
@@ -146,7 +146,7 @@ public class TextureConverter {
 
     private static Vector2 GetHoleHullEntrance(PolygonCreationAssistance pca,
                                                Array<Vector2> polygon, Vector2 startVertex) throws Exception {
-        Array<CrossingEdgeInfo> edges = new Array<CrossingEdgeInfo>();
+        Array<CrossingEdgeInfo> edges = new Array<>();
         Vector2 entrance;
         int startLine;
         int endLine;
@@ -336,7 +336,7 @@ public class TextureConverter {
     private static Array<CrossingEdgeInfo> GetCrossingEdges(
             Array<Vector2> polygon, EdgeAlignment edgeAlign, int checkLine)
             throws Exception {
-        Array<CrossingEdgeInfo> edges = new Array<CrossingEdgeInfo>();
+        Array<CrossingEdgeInfo> edges = new Array<>();
         Vector2 slope = new Vector2();
         Vector2 edgeVertex1 = new Vector2();
         Vector2 edgeVertex2 = new Vector2();
@@ -478,9 +478,9 @@ public class TextureConverter {
             PolygonCreationAssistance pca, Vector2 entrance, Vector2 last) {
         boolean entranceFound = false;
         boolean endOfHull = false;
-        Array<Vector2> polygon = new Array<Vector2>();
-        Array<Vector2> hullArea = new Array<Vector2>();
-        Array<Vector2> endOfHullArea = new Array<Vector2>();
+        Array<Vector2> polygon = new Array<>();
+        Array<Vector2> hullArea = new Array<>();
+        Array<Vector2> endOfHullArea = new Array<>();
         Vector2 current = new Vector2();
         Vector2 zeroVec = new Vector2();
         // Get the entrance point. //todo: alle moglichkeiten testen

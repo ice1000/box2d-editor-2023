@@ -60,9 +60,9 @@ public class TextureUtils {
     // -------------------------------------------------------------------------
 
     private static int getNearestPOT(int d) {
-        for (int i = 0; i < potWidths.length; i++)
-            if (d <= potWidths[i])
-                return potWidths[i];
+        for (int potWidth : potWidths)
+            if (d <= potWidth)
+                return potWidth;
         return -1;
     }
 }

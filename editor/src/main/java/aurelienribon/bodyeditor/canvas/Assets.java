@@ -23,7 +23,7 @@ public class Assets extends AssetManager {
         return instance;
     }
 
-    private final Map<RigidBodyModel, TextureRegion> rigidBodiesRegions = new HashMap<RigidBodyModel, TextureRegion>();
+    private final Map<RigidBodyModel, TextureRegion> rigidBodiesRegions = new HashMap<>();
     private TextureRegion unknownRegion;
 
     public void initialize() {
@@ -53,17 +53,14 @@ public class Assets extends AssetManager {
 
         unknownRegion = new TextureRegion(get("data/unknown.png", Texture.class));
 
-        Ctx.bodies.getModels().addListChangedListener(new ObservableList.ListChangeListener<RigidBodyModel>() {
-            @Override
-            public void changed(Object source, List<RigidBodyModel> added, List<RigidBodyModel> removed) {
-                for (RigidBodyModel body : removed) {
-                    TextureRegion region = rigidBodiesRegions.remove(body);
-                    if (region != null) region.getTexture().dispose();
-                }
+        Ctx.bodies.getModels().addListChangedListener((source, added, removed) -> {
+            for (RigidBodyModel body : removed) {
+                TextureRegion region = rigidBodiesRegions.remove(body);
+                if (region != null) region.getTexture().dispose();
+            }
 
-                for (RigidBodyModel body : added) {
-                    load(body);
-                }
+            for (RigidBodyModel body : added) {
+                load(body);
             }
         });
     }

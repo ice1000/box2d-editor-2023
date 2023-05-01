@@ -12,15 +12,12 @@ import java.util.List;
 public class RigidBodiesManager extends ChangeableObject {
     public static final String PROP_SELECTION = "selection";
 
-    private final ObservableList<RigidBodyModel> models = new ObservableList<RigidBodyModel>(this);
+    private final ObservableList<RigidBodyModel> models = new ObservableList<>(this);
     private RigidBodyModel selectedModel;
 
     public RigidBodiesManager() {
-        models.addListChangedListener(new ObservableList.ListChangeListener<RigidBodyModel>() {
-            @Override
-            public void changed(Object source, List<RigidBodyModel> added, List<RigidBodyModel> removed) {
-                if (!models.contains(selectedModel)) select(null);
-            }
+        models.addListChangedListener((source, added, removed) -> {
+            if (!models.contains(selectedModel)) select(null);
         });
     }
 

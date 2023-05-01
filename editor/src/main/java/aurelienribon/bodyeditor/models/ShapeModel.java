@@ -11,7 +11,7 @@ import java.util.List;
 public class ShapeModel {
     public enum Type {POLYGON, CIRCLE}
 
-    private final List<Vector2> vertices = new ArrayList<Vector2>();
+    private final List<Vector2> vertices = new ArrayList<>();
     private final Type type;
     private boolean isClosed = false;
 

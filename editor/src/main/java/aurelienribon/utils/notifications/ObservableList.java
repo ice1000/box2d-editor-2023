@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class ObservableList<T> extends ArrayList<T> {
     private final Object source;
-    private final List<T> evtList1 = new ArrayList<T>();
-    private final List<T> evtList2 = new ArrayList<T>();
+    private final List<T> evtList1 = new ArrayList<>();
+    private final List<T> evtList2 = new ArrayList<>();
 
     public ObservableList() {
         this.source = null;
@@ -162,13 +162,13 @@ public class ObservableList<T> extends ArrayList<T> {
     private void fireElementsAdded(List<T> elems) {
         if (elems.isEmpty()) return;
         for (ListChangeListener<T> listener : listeners.getListeners(ListChangeListener.class))
-            listener.changed(source != null ? source : this, elems, new ArrayList<T>());
+            listener.changed(source != null ? source : this, elems, new ArrayList<>());
     }
 
     private void fireElementsRemoved(List<T> elems) {
         if (elems.isEmpty()) return;
         for (ListChangeListener<T> listener : listeners.getListeners(ListChangeListener.class))
-            listener.changed(source != null ? source : this, new ArrayList<T>(), elems);
+            listener.changed(source != null ? source : this, new ArrayList<>(), elems);
     }
 
     private void fireChanged(List<T> added, List<T> removed) {

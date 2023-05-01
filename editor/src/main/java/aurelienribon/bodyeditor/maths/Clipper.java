@@ -31,7 +31,7 @@ public class Clipper {
                 break;
 
             case BAYAZIT:
-                Array<Vector2> tmpPoints = new Array<Vector2>(points.length);
+                Array<Vector2> tmpPoints = new Array<>(points.length);
                 tmpPoints.addAll(points);
 
                 Array<Array<Vector2>> tmpPolygons;

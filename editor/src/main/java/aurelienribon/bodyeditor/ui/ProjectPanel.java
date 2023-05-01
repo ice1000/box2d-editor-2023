@@ -23,37 +23,19 @@ public class ProjectPanel extends javax.swing.JPanel {
         Style.registerCssClasses(headerPanel, ".headerPanel");
         Style.registerCssClasses(saveBtn, ".bold");
 
-        newBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                newProject();
-            }
-        });
-        loadBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                loadProject();
-            }
-        });
-        saveBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                saveProject();
-            }
-        });
+        newBtn.addActionListener(e -> newProject());
+        loadBtn.addActionListener(e -> loadProject());
+        saveBtn.addActionListener(e -> saveProject());
 
         prjPathField.setForeground(Color.GRAY);
         saveBtn.setEnabled(false);
 
-        Ctx.io.addChangeListener(new ChangeListener() {
-            @Override
-            public void propertyChanged(Object source, String propertyName) {
-                if (propertyName.equals(IoManager.PROP_PROJECTFILE)) {
-                    saveBtn.setEnabled(true);
-                    prjPathField.setText(Ctx.io.getProjectFile().getPath());
-                    prjPathField.setForeground(Color.BLACK);
-                    Ctx.bodies.getModels().clear();
-                }
+        Ctx.io.addChangeListener((source, propertyName) -> {
+            if (propertyName.equals(IoManager.PROP_PROJECTFILE)) {
+                saveBtn.setEnabled(true);
+                prjPathField.setText(Ctx.io.getProjectFile().getPath());
+                prjPathField.setForeground(Color.BLACK);
+                Ctx.bodies.getModels().clear();
             }
         });
     }
@@ -112,10 +94,7 @@ public class ProjectPanel extends javax.swing.JPanel {
             Ctx.io.exportToFile();
             JOptionPane.showMessageDialog(Ctx.window, "Save successfully done.");
 
-        } catch (IOException ex) {
-            String msg = "Something went wrong while saving.\n\n" + ex.getClass().getSimpleName() + " - " + ex.getMessage();
-            JOptionPane.showMessageDialog(Ctx.window, msg);
-        } catch (JSONException ex) {
+        } catch (IOException | JSONException ex) {
             String msg = "Something went wrong while saving.\n\n" + ex.getClass().getSimpleName() + " - " + ex.getMessage();
             JOptionPane.showMessageDialog(Ctx.window, msg);
         }

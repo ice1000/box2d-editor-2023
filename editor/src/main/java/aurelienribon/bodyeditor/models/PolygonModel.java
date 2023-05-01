@@ -10,7 +10,7 @@ import java.util.List;
  * @author Aurelien Ribon | http://www.aurelienribon.com/
  */
 public class PolygonModel {
-    public final List<Vector2> vertices = new ArrayList<Vector2>();
+    public final List<Vector2> vertices = new ArrayList<>();
 
     public PolygonModel() {
     }

@@ -81,28 +81,22 @@ public class Canvas extends ApplicationAdapter {
     // -------------------------------------------------------------------------
 
     private void initializeSelectionListeners() {
-        Ctx.bodies.addChangeListener(new ChangeListener() {
-            @Override
-            public void propertyChanged(Object source, String propertyName) {
-                if (propertyName.equals(RigidBodiesManager.PROP_SELECTION)) {
-                    if (Ctx.bodies.getSelectedModel() != null) {
-                        Mode oldMode = mode;
-                        mode = Mode.BODIES;
-                        if (mode != oldMode) fireModeChanged(mode);
-                    }
+        Ctx.bodies.addChangeListener((source, propertyName) -> {
+            if (propertyName.equals(RigidBodiesManager.PROP_SELECTION)) {
+                if (Ctx.bodies.getSelectedModel() != null) {
+                    Mode oldMode = mode;
+                    mode = Mode.BODIES;
+                    if (mode != oldMode) fireModeChanged(mode);
                 }
             }
         });
 
-        Ctx.objects.addChangeListener(new ChangeListener() {
-            @Override
-            public void propertyChanged(Object source, String propertyName) {
-                if (propertyName.equals(RigidBodiesManager.PROP_SELECTION)) {
-                    if (Ctx.objects.getSelectedModel() != null) {
-                        Mode oldMode = mode;
-                        mode = Mode.OBJECTS;
-                        if (mode != oldMode) fireModeChanged(mode);
-                    }
+        Ctx.objects.addChangeListener((source, propertyName) -> {
+            if (propertyName.equals(RigidBodiesManager.PROP_SELECTION)) {
+                if (Ctx.objects.getSelectedModel() != null) {
+                    Mode oldMode = mode;
+                    mode = Mode.OBJECTS;
+                    if (mode != oldMode) fireModeChanged(mode);
                 }
             }
         });
@@ -171,7 +165,7 @@ public class Canvas extends ApplicationAdapter {
     // Events
     // -------------------------------------------------------------------------
 
-    private final List<Listener> listeners = new CopyOnWriteArrayList<Listener>();
+    private final List<Listener> listeners = new CopyOnWriteArrayList<>();
 
     public interface Listener {
         void modeChanged(Mode mode);

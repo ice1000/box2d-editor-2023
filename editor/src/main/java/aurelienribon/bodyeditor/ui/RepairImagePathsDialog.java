@@ -26,20 +26,12 @@ public class RepairImagePathsDialog extends javax.swing.JDialog {
         Style.registerCssClasses(getContentPane(), ".rootPanel", ".configPanel");
         Style.apply(getContentPane(), new Style(Res.getUrl("css/style.css")));
 
-        okBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                apply();
-                dispose();
-            }
+        okBtn.addActionListener(e -> {
+            apply();
+            dispose();
         });
 
-        cancelBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        cancelBtn.addActionListener(e -> dispose());
 
         init();
     }

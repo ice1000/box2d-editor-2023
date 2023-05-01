@@ -27,7 +27,7 @@ public class BayazitDecomposer {
     }
 
     private static Array<Vector2> Copy(int i, int j, Array<Vector2> vertices) {
-        Array<Vector2> p = new Array<Vector2>();
+        Array<Vector2> p = new Array<>();
         while (j < i)
             j += vertices.size;
         // p.reserve(j - i + 1);
@@ -95,7 +95,7 @@ public class BayazitDecomposer {
             // }
             // vertices = reversed;
         }
-        Array<Array<Vector2>> list = new Array<Array<Vector2>>();
+        Array<Array<Vector2>> list = new Array<>();
         float d, lowerDist, upperDist;
         Vector2 p;
         Vector2 lowerInt = new Vector2();
@@ -392,7 +392,7 @@ class SimplifyTools {
         // We can't simplify polygons under 3 vertices
         if (vertices.size < 3)
             return vertices;
-        Array<Vector2> simplified = new Array<Vector2>();
+        Array<Vector2> simplified = new Array<>();
         for (int i = 0; i < vertices.size; i++) {
             int prevId = i - 1;
             if (prevId < 0)
@@ -446,7 +446,7 @@ class SimplifyTools {
         for (int i = 0; i < vertices.size; i++)
             _usePt[i] = true;
         SimplifySection(vertices, 0, vertices.size - 1);
-        Array<Vector2> result = new Array<Vector2>();
+        Array<Vector2> result = new Array<>();
         for (int i = 0; i < vertices.size; i++)
             if (_usePt[i])
                 result.add(vertices.get(i));
@@ -520,7 +520,7 @@ class SimplifyTools {
             throw new InvalidParameterException(
                     "areaTolerance: must be equal to or greater then zero.");
         }
-        Array<Vector2> result = new Array<Vector2>();
+        Array<Vector2> result = new Array<>();
         Vector2 v1, v2, v3;
         float old1, old2, new1;
         v1 = vertices.get(vertices.size - 2);
@@ -594,7 +594,7 @@ class SimplifyTools {
             return;
         int currIndex = 0;
         // Copy the vertices to a new list and clear the old
-        Array<Vector2> oldVertices = new Array<Vector2>(vertices);
+        Array<Vector2> oldVertices = new Array<>(vertices);
         vertices.clear();
         for (int i = 0; i < oldVertices.size; ++i) {
             if (mergeMe[i] || newNVertices == 0 || currIndex == newNVertices)
@@ -612,7 +612,7 @@ class SimplifyTools {
     // / <param name="vertices">The vertices.</param>
     // / <returns></returns>
     public static Array<Vector2> MergeIdenticalPoints(Array<Vector2> vertices) {
-        Array<Vector2> results = new Array<Vector2>();
+        Array<Vector2> results = new Array<>();
         for (int i = 0; i < vertices.size; i++) {
             Vector2 vOriginal = vertices.get(i);
 
@@ -642,7 +642,7 @@ class SimplifyTools {
         // We can't simplify polygons under 3 vertices
         if (vertices.size < 3)
             return vertices;
-        Array<Vector2> simplified = new Array<Vector2>();
+        Array<Vector2> simplified = new Array<>();
         for (int i = 0; i < vertices.size; i++) {
             Vector2 current = vertices.get(i);
             int ii = i + 1;
@@ -670,7 +670,7 @@ class SimplifyTools {
             return vertices;
         if (nth == 0)
             return vertices;
-        Array<Vector2> result = new Array<Vector2>(vertices.size);
+        Array<Vector2> result = new Array<>(vertices.size);
         for (int i = 0; i < vertices.size; i++) {
             if (i % nth == 0)
                 continue;

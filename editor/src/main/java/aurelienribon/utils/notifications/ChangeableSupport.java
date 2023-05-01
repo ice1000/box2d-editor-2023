@@ -7,7 +7,7 @@ import java.util.List;
  * @author Aurelien Ribon | http://www.aurelienribon.com
  */
 public class ChangeableSupport implements Changeable {
-    private final List<ChangeListener> changeListeners = new ArrayList<ChangeListener>(3);
+    private final List<ChangeListener> changeListeners = new ArrayList<>(3);
 
     @Override
     public void addChangeListener(ChangeListener l) {

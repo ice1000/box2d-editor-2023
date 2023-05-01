@@ -41,24 +41,16 @@ public class AutoTraceParamsDialog extends javax.swing.JDialog {
         multiPartDetectionChk.setSelected(Settings.autoTraceMultiPartDetection);
         holeDetectionChk.setSelected(Settings.autoTraceHoleDetection);
 
-        okBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Settings.autoTraceHullTolerance = hullToleranceSlider.getValue() / 100f;
-                Settings.autoTraceAlphaTolerance = alphaToleranceSlider.getValue();
-                Settings.autoTraceMultiPartDetection = multiPartDetectionChk.isSelected();
-                Settings.autoTraceHoleDetection = holeDetectionChk.isSelected();
-                dispose();
-                result = true;
-            }
+        okBtn.addActionListener(e -> {
+            Settings.autoTraceHullTolerance = hullToleranceSlider.getValue() / 100f;
+            Settings.autoTraceAlphaTolerance = alphaToleranceSlider.getValue();
+            Settings.autoTraceMultiPartDetection = multiPartDetectionChk.isSelected();
+            Settings.autoTraceHoleDetection = holeDetectionChk.isSelected();
+            dispose();
+            result = true;
         });
 
-        cancelBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        cancelBtn.addActionListener(e -> dispose());
     }
 
     public boolean prompt() {
