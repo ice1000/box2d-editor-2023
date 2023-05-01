@@ -27,12 +27,12 @@ public class BodyEditorLoader {
     private final Vector2 vec = new Vector2();
 
     public BodyEditorLoader(FileHandle file) {
-        if (file == null) throw new NullPointerException("file is null");
+        assert file != null;
         model = readJson(file.readString());
     }
 
     public BodyEditorLoader(String str) {
-        if (str == null) throw new NullPointerException("str is null");
+        assert str != null;
         model = readJson(str);
     }
 

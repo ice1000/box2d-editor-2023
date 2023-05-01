@@ -17,7 +17,3 @@ sourceSets {
         java.srcDirs = ["src"]
     }
 }
-
-jar {
-    archiveFileName = "loader-libgdx.jar"
-}

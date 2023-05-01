@@ -17,17 +17,6 @@ dependencies {
 
 }
 
-sourceSets {
-    main {
-        java.srcDirs = ["src/main/java"]
-        resources.srcDirs = ["src/main/resources"]
-    }
-}
-
-jar {
-    archiveFileName = "loader-libgdx-demo.jar"
-}
-
 // Mark the resources dir in IntelliJ as an actual resource dir, not another java source dir
 // Derived from https://discuss.gradle.org/t/13391/2 but needs a TODO for Gradle import style vs XML hacking
 idea {
