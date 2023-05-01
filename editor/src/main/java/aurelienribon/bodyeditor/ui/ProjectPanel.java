@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
@@ -123,14 +124,14 @@ public class ProjectPanel extends javax.swing.JPanel {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        newBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/ic_open.png"))); // NOI18N
+        newBtn.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/gfx/ic_open.png")))); // NOI18N
         newBtn.setText("New project");
         newBtn.setFocusable(false);
         newBtn.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         newBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(newBtn);
 
-        loadBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/ic_open.png"))); // NOI18N
+        loadBtn.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/gfx/ic_open.png")))); // NOI18N
         loadBtn.setText("Load project");
         loadBtn.setFocusable(false);
         loadBtn.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -140,7 +141,7 @@ public class ProjectPanel extends javax.swing.JPanel {
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        saveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/ic_save.png"))); // NOI18N
+        saveBtn.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/gfx/ic_save.png")))); // NOI18N
         saveBtn.setText("Save");
         jToolBar2.add(saveBtn);
 

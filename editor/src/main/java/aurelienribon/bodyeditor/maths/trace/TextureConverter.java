@@ -185,7 +185,6 @@ public class TextureConverter {
                                                 polygon, entrance, true)) {
                                             return entrance;
                                         }
-                                        entrance = null;
                                         break;
                                     }
                                 } else {
@@ -841,11 +840,7 @@ class PolygonCreationAssistance {
         if (value < 1) {
             _holeDetectionLineStepSize = 1;
         } else {
-            if (value > 10) {
-                _holeDetectionLineStepSize = 10;
-            } else {
-                _holeDetectionLineStepSize = value;
-            }
+            _holeDetectionLineStepSize = Math.min(value, 10);
         }
     }
 

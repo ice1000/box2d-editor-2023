@@ -26,6 +26,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
@@ -183,11 +184,11 @@ public class MainWindow extends javax.swing.JFrame {
         logoPanel.setOpaque(false);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/title.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/gfx/title.png")))); // NOI18N
 
         logoWebsiteLbl.setText("<html><p align=\"right\">2012 - Aurelien Ribon<br/>www.aurelienribon.com</p>");
 
-        logoManualLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/ic_manual.png"))); // NOI18N
+        logoManualLbl.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/gfx/ic_manual.png")))); // NOI18N
         logoManualLbl.setText("Manual");
 
         javax.swing.GroupLayout logoPanelLayout = new javax.swing.GroupLayout(logoPanel);

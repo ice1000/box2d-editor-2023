@@ -22,6 +22,7 @@ import aurelienribon.ui.css.Style;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class AutoTraceParamsDialog extends javax.swing.JDialog {
     private boolean result = false;
@@ -166,7 +167,7 @@ public class AutoTraceParamsDialog extends javax.swing.JDialog {
         commentLabel.setText("<html>\nOnly check multi-part detection or hole detection if your image needs it.<br/>\nRemember that auto-trace is less precise than manually placed points.");
         commentLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/autoTrace.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/gfx/autoTrace.png")))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -29,7 +29,7 @@ public class BodiesListItem {
     private final TweenManager tweenManager = new TweenManager();
     private final Sprite background = new Sprite(Assets.inst().get("data/white.png", Texture.class));
     private final Sprite image;
-    private String text = "";
+    private String text;
     private boolean isTouchOver = false;
 
     public BodiesListItem(RigidBodyModel model, float w, float h, float p, BitmapFont font, Color bgColor) {

@@ -144,7 +144,7 @@ public class EwjordanDecomposer {
 
     private static boolean isEar(int i, float[] xv, float[] yv) {
         float dx0, dy0, dx1, dy1;
-        dx0 = dy0 = dx1 = dy1 = 0;
+        dx0 = dy0 = dx1 = 0;
 
         if (i >= xv.length || i < 0 || xv.length < 3)
             return false;

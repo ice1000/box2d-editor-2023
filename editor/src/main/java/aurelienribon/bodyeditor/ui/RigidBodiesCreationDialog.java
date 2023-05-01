@@ -21,6 +21,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.util.Objects;
 
 /**
  * @author Aurelien Ribon | <a href="http://www.aurelienribon.com/">...</a>
@@ -198,7 +199,7 @@ public class RigidBodiesCreationDialog extends javax.swing.JDialog {
         setTitle("New rigid body");
         setResizable(false);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gfx/newBody.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/gfx/newBody.png")))); // NOI18N
         getContentPane().add(jLabel4, java.awt.BorderLayout.WEST);
 
         jPanel1.setOpaque(false);
