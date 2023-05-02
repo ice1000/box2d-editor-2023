@@ -1,5 +1,7 @@
 Physics Body Editor
 ==========
+[![Maven Central](https://img.shields.io/maven-central/v/org.aya-prover.box2d-editor/loader)](https://repo1.maven.org/maven2/org/aya-prover/box2d-editor/loader)
+
 <img src="readmeImgs/slide-physics-body-editor.jpg" alt="Physics Body Editor"/>
 
 Introduction
@@ -18,6 +20,15 @@ I'm just doing the obvious things:
 * Project level, I
   * Provide prebuilt binaries
   * Upload the project to maven central
+
+To add the runtime to in your project, use
+
+```gradle
+repositories { mavenCentral() }
+dependencies {
+  implementation 'org.aya-prover.box2d-editor:loader:3.0.0'
+}
+```
 
 [ice1000]: https://github.com/ice1000/box2d-editor
 [simoarpe]: https://github.com/simoarpe/box2d-editor
