@@ -253,7 +253,7 @@ public class RigidBodiesPanel extends javax.swing.JPanel {
                 } else {
                     infoLabel.setText("[not found] " + imgPath);
                     try {
-                        imgPanel.setImage(Res.getUrl("gfx/unknown.png"));
+                        imgPanel.setImage(Res.getUrl("/gfx/unknown.png"));
                     } catch (IOException ex) {
                     }
                 }
